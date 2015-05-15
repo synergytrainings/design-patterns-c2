@@ -1,6 +1,8 @@
 package com.synisys.training.designpatterns.abstractfactory.impl.sql;
 
-import com.synisys.training.designpatterns.abstractfactory.api.*;
+import com.synisys.training.designpatterns.abstractfactory.api.QueryExecutor;
+import com.synisys.training.designpatterns.abstractfactory.api.QuerySafeExecutorFactory;
+import com.synisys.training.designpatterns.abstractfactory.api.QueryValidator;
 
 
 public class SqlQuerySafeExecutorFactory implements QuerySafeExecutorFactory{
