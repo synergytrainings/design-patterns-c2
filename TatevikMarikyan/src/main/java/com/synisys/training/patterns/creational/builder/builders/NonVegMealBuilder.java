@@ -9,14 +9,12 @@ import com.synisys.training.patterns.creational.builder.domain.Pepsi;
  */
 public class NonVegMealBuilder extends MealBuilder {
     @Override
-    public NonVegMealBuilder addBurger() {
+    public void addBurger() {
         this.meal.addItem(new ChickenBurger());
-        return this;
     }
 
     @Override
-    public NonVegMealBuilder addDrink() {
+    public void addDrink() {
         this.meal.addItem(new Pepsi());
-        return this;
     }
 }

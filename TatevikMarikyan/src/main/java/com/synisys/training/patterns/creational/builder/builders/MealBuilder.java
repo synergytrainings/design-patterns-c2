@@ -18,7 +18,7 @@ public abstract class MealBuilder {
         this.meal = new Meal();
     }
 
-    public abstract MealBuilder addBurger();
+    public abstract void addBurger();
 
-    public abstract MealBuilder addDrink();
+    public abstract void addDrink();
 }
