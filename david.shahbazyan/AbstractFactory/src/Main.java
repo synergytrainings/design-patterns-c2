@@ -3,30 +3,27 @@
  */
 public class Main {
     public static void main(String[] args) {
-        KeyMaker keyMaker = null;
+        KeyGenerator keyGen = new KeyGeneratorImpl(1, 13, "David.Shahbazyan");
         if (args.length > 0) {
             switch (Integer.valueOf(args[0])) {
                 case KeyMaker.PRODUCTID_RubyMine:
-                    keyMaker = new RubyMineKeyMaker();
+                    System.out.println(keyGen.generateKey(new RubyMineKeyMaker()));
                     break;
                 case KeyMaker.PRODUCTID_PyCharm:
-                    keyMaker = new PyCharmKeyMaker();
+                    System.out.println(keyGen.generateKey(new PyCharmKeyMaker()));
                     break;
                 case KeyMaker.PRODUCTID_WebStorm:
-                    keyMaker = new WebStormKeyMaker();
+                    System.out.println(keyGen.generateKey(new WebStormKeyMaker()));
                     break;
                 case KeyMaker.PRODUCTID_PhpStorm:
-                    keyMaker = new PhpStormKeyMaker();
+                    System.out.println(keyGen.generateKey(new PhpStormKeyMaker()));
                     break;
                 case KeyMaker.PRODUCTID_AppCode:
-                    keyMaker = new AppCodeKeyMaker();
+                    System.out.println(keyGen.generateKey(new AppCodeKeyMaker()));
                     break;
                 default:
                     break;
             }
-        }
-        if (keyMaker != null) {
-            System.out.println(keyMaker.getKey(1, 13, "David.Shahbazyan"));
         }
     }
 }

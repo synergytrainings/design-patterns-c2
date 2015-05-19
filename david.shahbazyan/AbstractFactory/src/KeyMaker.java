@@ -25,8 +25,7 @@ public abstract class KeyMaker {
         return String.format("D%sT", Integer.toString(random.nextInt(90000) + 10000));
     }
 
-    private short getCRC(String s, int i, byte bytes[])
-    {
+    private short getCRC(String s, int i, byte bytes[]) {
         CRC32 crc32 = new CRC32();
         if (s != null)
         {
@@ -48,9 +47,7 @@ public abstract class KeyMaker {
         return (short) (int) crc32.getValue();
     }
 
-    private byte[] generateKeyBytes(int licenseType, int productId,
-                                    int minorVersion, int majorVersion,
-                                    String userName, int customerId) {
+    private byte[] generateKeyBytes(int licenseType, int productId, int minorVersion, int majorVersion, String userName, int customerId) {
         byte[] keyBytes = new byte[14];
         keyBytes[0] = (byte)((licenseType << 4) + (productId & 0xFF));
         keyBytes[1] = (byte)((minorVersion << 4) + (majorVersion & 0xFF));
@@ -78,10 +75,7 @@ public abstract class KeyMaker {
         return keyBytes;
     }
 
-    public String generateKey(BigInteger privKey, BigInteger pubKey,
-                              int licenseType, int productId,
-                              int minorVersion, int majorVersion,
-                              String userName) {
+    public String generateKey(BigInteger privKey, BigInteger pubKey, int licenseType, int productId, int minorVersion, int majorVersion, String userName) {
 
         int customerId = random.nextInt(9000) + 1000;
         byte[] keyBytes = generateKeyBytes(licenseType, productId, minorVersion, majorVersion, userName, customerId);
