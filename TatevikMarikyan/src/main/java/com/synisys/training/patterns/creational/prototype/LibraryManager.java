@@ -27,7 +27,7 @@ public class LibraryManager {
     }
 
     public static <T extends LibraryItem> T get(String name) throws CloneNotSupportedException {
-        return (T) library.get(name).clone();
+        return (T) library.get(name);
     }
 
     public static <T extends LibraryItem> T put(String name, T libraryItem) {

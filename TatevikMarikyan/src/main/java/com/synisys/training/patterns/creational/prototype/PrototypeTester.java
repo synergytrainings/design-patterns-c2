@@ -1,5 +1,6 @@
 package com.synisys.training.patterns.creational.prototype;
 
+import com.synisys.training.patterns.creational.prototype.domain.Journal;
 import com.synisys.training.patterns.creational.prototype.domain.LibraryItem;
 import com.synisys.training.patterns.creational.prototype.domain.LibraryItemImpl;
 
@@ -26,9 +27,11 @@ public class PrototypeTester<T extends LibraryItemImpl> {
         currentReadingJournals.add(LibraryManager.get("journal2"));
         System.out.println(currentReadingJournals.toString());
 
-        currentReadingBooks.clear();
-        currentReadingJournals.clear();
+        Journal journal2 = LibraryManager.get("journal2");
+        journal2.setNumber("2015-04");
+        journal2.setName("journal4");
+        LibraryManager.put("journal2", journal2);
+        System.out.println(currentReadingJournals.toString());
 
-        System.out.println(LibraryManager.browse().toString());
     }
 }
