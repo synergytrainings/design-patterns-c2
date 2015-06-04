@@ -13,11 +13,11 @@ public class SenderFactory {
     public Sender getSender(TransferType transferType) {
         switch (transferType) {
             case EMAIL:
-                return new MailSender();
+                return  MailSender.getInstance();
             case SYSTEM:
-                return new SystemSender();
+                return  SystemSender.getInstance();
             case SMS:
-                return new SmsSender();
+                return  SmsSender.getInstance();
             default:
                 throw new IllegalArgumentException(String.format("Unknown Transfer Type %s", transferType));
 
