@@ -7,6 +7,7 @@ public class SystemSender implements Sender {
 
 
     private static Sender systemSender = null;
+    private SystemSender(){}
 
     public static synchronized Sender getInstance() {
         if (systemSender == null) {

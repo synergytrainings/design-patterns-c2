@@ -6,6 +6,7 @@ package com.synisys.ns;
 public class MailSender implements Sender {
 
     private static Sender mailSender = null;
+    private MailSender(){}
 
     public static synchronized Sender getInstance() {
         if (mailSender == null) {
