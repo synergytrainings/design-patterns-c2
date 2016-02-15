@@ -1,9 +1,11 @@
 import domains.Context;
-import impl.ShowExpression;
-import interfaces.Expression;
+import impl.EmptyValidator;
+import impl.IPSyntaxValidator;
+import impl.IPValidator;
+import impl.RangeValidator;
+import interfaces.Validator;
 
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * <b>Author:</b> David Shahbazyan <br/>
@@ -12,21 +14,20 @@ import java.util.List;
  */
 public class Main {
     public static void main(String[] args) {
-        List<Context> contexts = Arrays.asList(new Context("show date"), new Context("print blah"));
+        String fromIP = "192.168.4.1";
+        String toIP = "192.168.7.255";
 
-        for (Context context : contexts) {
-            Expression expression = null;
-            if (context.getInput().contains("show")) {
-                context.setInput(context.getInput().substring(4).trim());
-                expression = new ShowExpression(context);
-            } else if (context.getInput().contains("print")) {
-                context.setInput(context.getInput().substring(5).trim());
-                expression = new ShowExpression(context);
-            }
-            if (expression != null) {
-                expression.interpret();
-            }
-        }
+        Context context = new Context("192.168.5.122");
 
+        Validator emptyValidator = new EmptyValidator(context);
+        Validator ipSyntaxValidator = new IPSyntaxValidator(context);
+        Validator rangeValidator = new RangeValidator(fromIP, toIP);
+        Validator ipValidator = new IPValidator(Arrays.asList(emptyValidator, ipSyntaxValidator, rangeValidator));
+
+        System.out.println("Range From:\t" + fromIP);
+        System.out.println("Range To:\t" + toIP);
+        System.out.println("Context:\t" + context.getInput());
+        System.out.println("Is valid:\t" + ipValidator.validate(context));
+        System.out.println("------------------------------------------");
     }
 }

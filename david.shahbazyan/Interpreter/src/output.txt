@@ -1,0 +1,39 @@
+Range From:	192.168.4.1
+Range To:	192.168.4.255
+Context:	192.168.4.122
+IPValidator::validate()
+EmptyValidator::validate()
+IPSyntaxValidator::validate()
+RangeValidator::validate()
+Is valid:	true
+------------------------------------------
+
+Range From:	192.168.4.1
+Range To:	192.168.4.255
+Context:	192.168.3.122
+IPValidator::validate()
+EmptyValidator::validate()
+IPSyntaxValidator::validate()
+RangeValidator::validate()
+Is valid:	false
+------------------------------------------
+
+Range From:	192.168.4.1
+Range To:	192.168.4.255
+Context:	192.168.5.122
+IPValidator::validate()
+EmptyValidator::validate()
+IPSyntaxValidator::validate()
+RangeValidator::validate()
+Is valid:	false
+------------------------------------------
+
+Range From:	192.168.4.1
+Range To:	192.168.7.255
+Context:	192.168.5.122
+IPValidator::validate()
+EmptyValidator::validate()
+IPSyntaxValidator::validate()
+RangeValidator::validate()
+Is valid:	true
+------------------------------------------
