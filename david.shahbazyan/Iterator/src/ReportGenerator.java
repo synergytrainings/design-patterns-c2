@@ -1,7 +1,7 @@
+import java.util.Iterator;
+
 import domain.ProductInfo;
 import interfaces.ProductIterator;
-
-import java.util.Iterator;
 
 /**
  * <b>Author:</b> David Shahbazyan <br/>
@@ -23,26 +23,21 @@ public class ReportGenerator {
     }
 
     public void showSoldReport() {
-        Iterator<ProductInfo> iterator = this.productsSold.getIterator();
         System.out.println("[PRODUCTS SOLD]");
-        while (iterator.hasNext()) {
-            ProductInfo info =  iterator.next();
-            printProdInfo(info);
-        }
+        printProgucts(this.productsSold.getIterator());
         System.out.println();
     }
 
     public void showLeftReport() {
-        Iterator<ProductInfo> iterator = this.productsLeft.getIterator();
         System.out.println("[PRODUCTS LEFT]");
-        while (iterator.hasNext()) {
-            ProductInfo info =  iterator.next();
-            printProdInfo(info);
-        }
+        printProgucts(this.productsLeft.getIterator());
         System.out.println();
     }
 
-    private void printProdInfo(ProductInfo info) {
-        System.out.println("[NAME: " + info.getProductName() + "], [MANUFACTURER: " + info.getManufacturerName() + "], [QUANTITY: " + info.getQuantity() + "]");
+    private void printProgucts(Iterator<ProductInfo> products) {
+        while (products.hasNext()) {
+            ProductInfo info =  products.next();
+            System.out.println(info);
+        }
     }
 }
