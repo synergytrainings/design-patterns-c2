@@ -1,0 +1,5 @@
+expression::= <command> |<sequence> |<repetition> 
+sequence::= <expression> ';' <expression>
+command ::= fly | left | right 
+repetition::=  repeat  <variable> times  <expression>
+variable::=[1-9][0-9]*
