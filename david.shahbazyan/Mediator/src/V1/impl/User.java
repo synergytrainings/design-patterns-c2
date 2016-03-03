@@ -1,7 +1,7 @@
-package impl;
+package V1.impl;
 
-import api.Client;
-import api.Mediator;
+import V1.api.Client;
+import V1.api.Mediator;
 
 /**
  * <b>Author:</b> David Shahbazyan <br/>

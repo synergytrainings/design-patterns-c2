@@ -1,10 +1,10 @@
-package impl;
-
-import api.Client;
-import api.Mediator;
+package V1.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import V1.api.Client;
+import V1.api.Mediator;
 
 /**
  * <b>Author:</b> David Shahbazyan <br/>

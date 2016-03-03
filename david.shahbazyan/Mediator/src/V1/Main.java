@@ -1,7 +1,9 @@
-import impl.Channel;
-import impl.User;
+package V1;
 
 import java.util.concurrent.atomic.AtomicInteger;
+
+import V1.impl.Channel;
+import V1.impl.User;
 
 /**
  * <b>Author:</b> David Shahbazyan <br/>
