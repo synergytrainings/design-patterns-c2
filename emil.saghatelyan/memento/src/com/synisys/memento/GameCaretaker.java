@@ -9,8 +9,8 @@ import java.util.List;
 public class GameCaretaker {
 	private List<Object> mementoList = new ArrayList<Object>();
 
-	public void addMemento(Object state) {
-		mementoList.add(state);
+	public void addMemento(Object game) {
+		mementoList.add(((Game)game).saveState());
 	}
 
 	public Object getMemento(int index) {
