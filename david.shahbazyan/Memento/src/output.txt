@@ -1,0 +1,33 @@
+/* New instance > Saved as backup[1] */
+Disconnected from the target VM, address: '127.0.0.1:21407', transport: 'socket'
+Last modified: Tue Mar 15 13:55:09 AMT 2016
+--------------------------
+Name: User1 name
+Surname: User1 surname
+Age: 15
+Phone: 352-892-2482
+Email: testMail@localhost.loc
+--------------------------
+/* Change 1 > Saved as backup[2] */
+Last modified: Tue Mar 15 13:55:09 AMT 2016
+--------------------------
+Name: User1 name
+Surname: User1 surname
+Age: 15
+Phone: 555-654-3214
+Email: blah@mail.ru
+--------------------------
+/* New clear instance */
+Name: null
+Surname: null
+Age: null
+Phone: null
+Email: null
+------------------------------
+/* Data restored from last change (backup[2]) */
+Name: User1 name
+Surname: User1 surname
+Age: 15
+Phone: 555-654-3214
+Email: blah@mail.ru
+------------------------------
