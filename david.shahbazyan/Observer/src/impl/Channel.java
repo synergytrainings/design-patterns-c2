@@ -1,9 +1,9 @@
 package impl;
 
-import api.Observable;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import api.Observable;
 
 /**
  * Created by: David.Shahbazyan
@@ -48,7 +48,9 @@ public class Channel implements Observable {
     @Override
     public void notifyAllClients() {
         for (Client client : clients) {
-            client.update(currentSender, currentMessage);
+			if (!currentSender.equals(client)) {
+				client.update(currentSender, currentMessage);
+			}
         }
     }
 }
