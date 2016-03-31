@@ -1,3 +1,5 @@
+package TemplateMethod;
+
 import com.sun.deploy.si.SingleInstanceImpl;
 
 /**

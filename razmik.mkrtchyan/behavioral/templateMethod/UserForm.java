@@ -1,3 +1,5 @@
+package TemplateMethod;
+
 /**
  * Created by Razmik.Mkrtchyan on 3/31/2016.
  */
@@ -6,7 +8,6 @@ public class UserForm
 
 	@Override
 	protected void loadFormData(Integer id) {
-		setEntity(new User());
 		//load from DB
 	}
 
