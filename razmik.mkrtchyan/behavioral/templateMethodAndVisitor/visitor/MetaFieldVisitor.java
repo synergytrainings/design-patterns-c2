@@ -1,4 +1,4 @@
-package TemplateMethod.visitor;
+package templateMethodAndVisitor.visitor;
 
 public interface MetaFieldVisitor {
 

@@ -1,12 +1,12 @@
-package TemplateMethod;
+package templateMethodAndVisitor;
 
-import TemplateMethod.visitor.BigDecimalMetaField;
-import TemplateMethod.visitor.IntegerMetaField;
-import TemplateMethod.visitor.MetaField;
-import TemplateMethod.visitor.StringMetaField;
+
+import templateMethodAndVisitor.visitor.BigDecimalMetaField;
+import templateMethodAndVisitor.visitor.IntegerMetaField;
+import templateMethodAndVisitor.visitor.StringMetaField;
 
 import java.math.BigDecimal;
-import java.util.List;
+
 
 /**
  * Created by Razmik.Mkrtchyan on 3/31/2016.

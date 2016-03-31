@@ -1,11 +1,13 @@
-package TemplateMethod.visitor;
+package templateMethodAndVisitor.visitor;
 
 /**
  * Created by Razmik.Mkrtchyan on 3/31/2016.
  */
 public class BigDecimalMetaField  extends MetaFieldImpl{
-    public BigDecimalMetaField(String systemName) {
-        super(systemName);
+
+
+    public BigDecimalMetaField(MetaFieldId metaFieldId) {
+        super(metaFieldId);
     }
 
     @Override

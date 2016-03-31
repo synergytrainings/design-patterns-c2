@@ -1,15 +1,11 @@
-package TemplateMethod;
+package templateMethodAndVisitor;
 
-import TemplateMethod.visitor.BigDecimalMetaField;
-import TemplateMethod.visitor.IntegerMetaField;
-import TemplateMethod.visitor.MetaField;
-import TemplateMethod.visitor.MetaFieldVisitor;
-import TemplateMethod.visitor.StringMetaField;
+
+import templateMethodAndVisitor.visitor.*;
 
 import java.math.BigDecimal;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Created by Razmik.Mkrtchyan on 3/31/2016.
@@ -17,34 +13,32 @@ import java.util.List;
 public class EditableEntityImpl
         implements EditableEntity {
 
-    private final HashMap<String, Object> data;
-    private final String category;
-    private final List<MetaField> metaFields;
+    private final HashMap<MetaFieldId, Object> data;
+    private final Collection<MetaFieldId> metaFieldIds;
 
-    public EditableEntityImpl(String category, HashMap<String, Object> data, List<MetaField> metaFields) {
-        this.category = category;
+    public EditableEntityImpl(HashMap<MetaFieldId, Object> data) {
         this.data = data;
-        this.metaFields = metaFields;
+        this.metaFieldIds = Collections.unmodifiableCollection(data.keySet().stream().collect(Collectors.toList()));
     }
 
     public String get(StringMetaField stringMetaField) {
-        return (String) data.get(stringMetaField.getSystemName());
+        return (String) data.get(stringMetaField);
     }
 
-    public Integer get(IntegerMetaField stringMetaField) {
-        return (Integer) data.get(stringMetaField.getSystemName());
+    public Integer get(IntegerMetaField integerMetaField) {
+        return (Integer) data.get(integerMetaField);
     }
 
-    public BigDecimal get(BigDecimalMetaField stringMetaField) {
-        return (BigDecimal) data.get(stringMetaField.getSystemName());
+    public BigDecimal get(BigDecimalMetaField bigDecimalMetaField) {
+        return (BigDecimal) data.get(bigDecimalMetaField);
     }
 
     @Override
     public boolean isSame(EditableEntity editableEntity) {
         CustomMetaFieldVisitor metaFieldVisitor = new CustomMetaFieldVisitor(editableEntity, this);
         final boolean result[] = {false};
-        metaFields.forEach(metaField -> {
-            metaField.accept(metaFieldVisitor);
+        metaFieldIds.forEach(metaFieldId -> {
+            Engine.getMetaField(metaFieldId).accept(metaFieldVisitor);
             result[0] = result[0] || metaFieldVisitor.result;
         });
         return result[0];
@@ -52,7 +46,7 @@ public class EditableEntityImpl
 
     @Override
     public EditableEntity clone() {
-        return new EditableEntityImpl(this.category, (HashMap<String, Object>) data.clone(), metaFields);
+        return new EditableEntityImpl((HashMap<MetaFieldId, Object>) data.clone());
     }
 
     private static class CustomMetaFieldVisitor implements MetaFieldVisitor {

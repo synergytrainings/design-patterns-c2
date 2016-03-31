@@ -1,8 +1,8 @@
-package TemplateMethod.visitor;
+package templateMethodAndVisitor.visitor;
 
 public interface MetaField {
 	void accept(MetaFieldVisitor metaFieldVisitor);
 
-	 String getSystemName();
+	 MetaFieldId getMetaFieldId();
 
 }
